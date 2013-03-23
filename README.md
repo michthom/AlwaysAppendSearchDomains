@@ -4,6 +4,9 @@ AlwaysAppendSearchDomains
 This script is intended to fix a bug in MacOSX when accessing resources (web sites, servers)
 with a name of the form aaa.bbb where the true hostname is in fact aaa.bbb.search.domain.
 
+This bug means for example you can use `nslookup` to resolve a hostname but when you try to
+`ping` the same hostname the Mac complains it can't resolve the addres. Very peculiar.
+
 For details please see: 
 * http://apple.stackexchange.com/questions/50457/nslookup-works-ping-and-ssh-dont-os-x-lion-10-7-3
 * http://www.eigenspace.org/2011/07/fixing-osx-lion-dns-search-domains/
