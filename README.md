@@ -9,6 +9,18 @@ For details please see:
   http://www.eigenspace.org/2011/07/fixing-osx-lion-dns-search-domains/
   http://www.makingitscale.com/2011/broken-search-domain-resolution-in-osx-lion.html
 
+To apply the changes:
+  
+  Open Terminal
+  cd <directory holding the scripts>
+  ./AlwaysAppendSearchDomains.sh
+
+To remove the changes and restore the default configuration:
+
+  Open Terminal
+  cd <directory holding the scripts>
+  ./uninstall.sh
+
 This script may ask for your administrator password (if you have not recently authenticated),
 and will update a single file  (/System/Library/LaunchDaemons/com.apple.mDNSResponder.plist)
 before restarting the name resolution system on your machine.
