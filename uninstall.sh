@@ -25,14 +25,10 @@ cp ${LOCALCOPY} ${LOCALEDIT}
 patch --forward --unified -p0 ${LOCALEDIT} <<-!EOD
 --- com.apple.mDNSResponder.plist.original  2013-03-23 20:53:55.000000000 +0000
 +++ com.apple.mDNSResponder.plist.new	2013-03-23 20:52:50.000000000 +0000
-@@ -16,7 +16,6 @@
+@@ -16,3 +16,2 @@
  	<array>
  		<string>/usr/sbin/mDNSResponder</string>
- 		<string>-launchd</string>
 -		<string>-AlwaysAppendSearchDomains</string>
- 	</array>
- 	<key>MachServices</key>
- 	<dict>
 !EOD
 
 if [ $? -ne 0 ]; then 
