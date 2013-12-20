@@ -10,7 +10,8 @@ This script may ask for your administrator password (if you have not recently au
 and will update a single file  (/System/Library/LaunchDaemons/com.apple.mDNSResponder.plist)
 before restarting the name resolution system on this machine.
 
-Originally written by Mike Thomson (mike@m-thomson.net)
+If it aborts, please contact the Brilliant Desk or Equanet (0845 37 01 889) for further support.
+Originally written by Mike Thomson (michael.thomson@ee.co.uk, 07977 415 639)
 
 !EOD
 
@@ -22,14 +23,7 @@ sudo cp -a ${LIBFILE} ${LOCALCOPY}
 
 cp ${LOCALCOPY} ${LOCALEDIT}
 
-patch --forward --unified -p0 ${LOCALEDIT} <<-!EOD
---- com.apple.mDNSResponder.plist.original  2013-03-23 20:53:55.000000000 +0000
-+++ com.apple.mDNSResponder.plist.new	2013-03-23 20:52:50.000000000 +0000
-@@ -16,3 +16,2 @@
- 	<array>
- 		<string>/usr/sbin/mDNSResponder</string>
--		<string>-AlwaysAppendSearchDomains</string>
-!EOD
+sed -E '/<string>-AlwaysAppendSearchDomains<\/string>/ d' ${LOCALCOPY} > ${LOCALEDIT}
 
 if [ $? -ne 0 ]; then 
 {
@@ -38,20 +32,20 @@ if [ $? -ne 0 ]; then
 }
 fi
 
-# Copy original ownership and permissions
-     chmod `stat -f %p ${LOCALCOPY}` ${LOCALEDIT}
-sudo chown `stat -f %u ${LOCALCOPY}` ${LOCALEDIT}
-sudo chgrp `stat -f %g ${LOCALCOPY}` ${LOCALEDIT}
-
 # Put it back in place
 sudo cp -a ${LOCALEDIT} ${LIBFILE}
 
-if [ $? -ne 0 ]; then 
+if [ $? -ne 0 ]; then
 {
   echo "File writeback failed. Aborting"
   exit 255
 }
 fi
+
+# Copy original ownership and permissions
+sudo chmod 0644  ${LIBFILE}
+sudo chown root  ${LIBFILE}
+sudo chgrp wheel ${LIBFILE}
 
 {
   echo "Restarting mDNSResponder"
