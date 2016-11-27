@@ -15,7 +15,7 @@ For details please see:
 * http://www.eigenspace.org/2011/07/fixing-osx-lion-dns-search-domains/
 * http://www.makingitscale.com/2011/broken-search-domain-resolution-in-osx-lion.html
 
-The 'new way' in macOS Sierra (and El Capitan?) to do this is to run (in Terminal):
+The 'new way' in macOS Sierra (and tested also in El Capitan) to do this is to run (in Terminal):
 
     sudo launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
     sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist AlwaysAppendSearchDomains -bool YES
