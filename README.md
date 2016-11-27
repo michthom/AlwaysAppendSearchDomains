@@ -17,15 +17,15 @@ For details please see:
 
 The 'new way' in macOS Sierra (and El Capitan?) to do this is to run (in Terminal):
 
-sudo launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
-sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist AlwaysAppendSearchDomains -bool YES
-sudo launchctl load /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+    sudo launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+    sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist AlwaysAppendSearchDomains -bool YES
+    sudo launchctl load /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 
 And to revert to the default behaviour:
 
-sudo launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
-sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist AlwaysAppendSearchDomains -bool NO
-sudo launchctl load /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+    sudo launchctl unload /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
+    sudo defaults write /Library/Preferences/com.apple.mDNSResponder.plist AlwaysAppendSearchDomains -bool NO
+    sudo launchctl load /System/Library/LaunchDaemons/com.apple.mDNSResponder.plist
 
 For anyone remaining on an older version of MacOS X, the scripts described below have been moved to the "older" folder.
 
