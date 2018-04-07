@@ -12,7 +12,7 @@ If you choose to disable SIP to complete the steps in Pieter's updated fix, you 
 2. Start up while holding down Command-R
 3. Choose Utilities > Terminal from the menu bar
 4. Type the commands:
-   *    csrutil enable
+   *    csrutil disable
    *    reboot
 
 Then follow Pieter's steps below, and then re-enable SIP afterwards by repeating the above using "csrutil enable" instead. 
